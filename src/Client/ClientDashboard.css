@@ -1,0 +1,78 @@
+ .form1
+   {
+       margin: 0;
+       padding: 12px 0;
+       text-align: left;
+       background-color: lightseagreen;
+       color: white;
+   }
+
+ .react-datepicker-wrapper,.react-datepicker__input-container{
+     width: 100%;
+ }
+  .uploadFiles{
+      margin: 20px auto;
+       width: 160px;
+  }
+
+ .clntEmpButton{
+      margin-top: 1.8%;
+ }
+ .btnLeft
+ {
+    margin-left: 10px;
+ }
+
+ .ClientEmpSearch
+  {
+    padding:10px 0;
+    box-sizing: border-box; 
+    background-color: lightgray;
+    margin-bottom: 10px;
+    height: 98px;
+ }
+
+ .btstrap{
+    margin-top: 10px;
+}
+.clientEmpContainer{
+  position: absolute;
+  margin-left:8%;
+  margin-right: 8%;
+}
+.clntEmpheadercon{
+margin-top: 3.5%;
+}
+
+
+.uploadBtn
+{
+    margin-left: 48%;
+}
+
+
+.myformheader{
+    margin: 0;
+    padding: 14px 0;
+    font-weight: 700;
+    text-align: left;
+    background-color: lightseagreen;
+    color: white;
+    padding-left: 10px;
+    font-size: 20px;
+    border-bottom-left-radius: 1px;
+    border-bottom-right-radius: 1px;
+}
+
+.searchBtn{
+    margin: 0;
+    text-align: left;
+    background-color: #268870;
+    color: white;
+}
+
+.mySearch{
+    padding:10px 0;
+    margin-bottom: 10px;
+    background-color: rgb(224, 220, 220);
+}

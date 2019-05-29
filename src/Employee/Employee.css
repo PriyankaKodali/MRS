@@ -1,0 +1,206 @@
+.Empheadercon{
+margin-top: 3.5%;
+}
+.empJobsHeader{
+    padding-left: 5px;
+    margin-top: 4%;
+}
+
+.job-summary-strip{
+    font-size: 16px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    color: #fff;
+    font-family: 'roboto';
+    margin: 0 5px;
+}
+
+.teal500 {
+    background: #009688!important;
+}
+.pink {
+  background: palevioletred !important;
+}
+
+.EmpHeader{
+    margin-top: 5%;
+    color: #ff5252!important;
+    font-size: 14px;
+}
+    
+
+.close{
+    margin-right: 2%;
+}
+
+
+/* The container */
+.radiocontainer {
+    display: block;
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    margin-top: 10%;
+    cursor: pointer;
+    font-size: 12px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radiocontainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #eee;
+    border-radius: 50%;
+    border: 1px solid grey;
+    padding-left: 10px;
+}
+
+/* On mouse-over, add a grey background color */
+.radiocontainer:hover input ~ .checkmark {
+    background-color: #ccc;
+    border: 1px solid grey;
+}
+
+/* When the radio button is checked, add a blue background */
+.radiocontainer input:checked ~ .checkmark {
+    /* background-color: rgb(202, 7, 121); */
+    background-color:white;
+    border: 2px solid rgb(202, 7, 121);
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    background-color:white;
+    border: 1px rgb(202, 7, 121);
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radiocontainer input:checked ~ .checkmark:after {
+    display: block;
+    background-color:rgb(202, 7, 121);
+}
+
+/* Style the indicator (dot/circle) */
+.radiocontainer .checkmark:after {
+ 	top: 2px;
+	left: 2px;
+	width: 12px;
+	height: 12px;
+	border-radius: 50%;
+    background: white;
+}
+
+
+.jobNumber{
+    border:none;
+    outline: none;
+    border-bottom: 1px solid gray;
+    font-size: 14px;
+}
+
+.allocatejob{
+    margin-top:50px; 
+}
+.modaldialogueCss{
+    z-index: 2000;
+    max-height: 85px;
+    margin-top: 1.5%;
+    margin-bottom: 50px;
+}
+
+
+.form-control-placeholder {
+    position: absolute;
+    top: 0;
+    padding: 7px 0 0 13px;
+    transition: all 200ms;
+    opacity: 0.5;
+    font-size: 12px;
+  }
+  
+  .form-control:focus + .form-control-placeholder,
+  .form-control:valid + .form-control-placeholder {
+    font-size: 90%;
+    transform: translate3d(0, -100%, 0);
+    opacity: 1;
+    font-size: 12px;
+  }
+  .modelBtnClose{
+      margin-right: 2%;
+  }
+
+  .modal-header .close {
+    margin-top: -2px;
+    background-color: white;
+    width: 21px;
+    color: red;
+  }
+
+  .modal-body {
+    position: relative;
+    padding: 17px;
+    font-size: 12px;
+  }
+
+  .labelinput{
+  border:none;
+  outline: none;
+  border-bottom: 1px solid gray;
+  font-size: 14px;
+  }
+  
+
+  .formhead
+  {
+      margin: 0;
+      padding-top: 12px;
+      padding-bottom: 12px;
+      padding-left: 10px;
+      text-align: left;
+      background-color: lightseagreen;
+      color: white;
+  }
+   .jobsplitbtn{
+      margin-top: 20px;
+      margin-left: 40%;
+   }
+
+   
+.splitheadercon{
+   margin-top:3.7%; 
+}
+
+.jobsplit{
+    margin-top: 2%;
+} 
+
+  .modalExample {
+  display:block;
+  
+}  
+
+.form-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+.modal-dialog{
+    width: 1250px;
+}

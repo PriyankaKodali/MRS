@@ -1,0 +1,248 @@
+.header {
+    background: white;
+    height:30px;
+    width:100px;
+}
+    
+.header h3 {
+  position: relative;
+  top: 18px;
+  left: 10px;
+}
+ .header img {
+ float: left;
+ /* width: 55px;
+ height: 30px; */
+ background: white;
+ } 
+
+.cont
+{
+ border-bottom: gray;
+ border-block-end: gray;
+
+}
+
+@media (min-width: 768px) {
+.my-custom-container{
+    width:750px;
+}}
+
+  .formheader
+   {
+       margin: 0;
+       padding: 12px 0;
+       text-align: left;
+       background-color: lightseagreen;
+       color: white;
+       padding-left: 10px;
+   }
+
+   .mybutton{
+        margin: 0;
+       text-align: left;
+       background-color: lightseagreen;
+       color: white;
+   }
+
+  .button
+   {
+     vertical-align:text-bottom;
+    display:inline-block;
+    border-width:0px 0px 0px 1px;
+    margin:0;
+    height:55px
+   }
+
+  .CodntformSearch
+  {
+    padding:10px 0;
+    box-sizing: border-box; 
+    background-color: lightgray;
+    margin-bottom: 10px;
+    height: 152px;
+ }
+
+ .react-datepicker-wrapper,.react-datepicker__input-container{
+     width: 100%;
+ }
+ 
+.coorHeadercon{
+        margin-top: 3.7%;}
+        
+.headerbtn
+{
+    margin: 8px 0;
+    border-color: lightseagreen;
+}
+ ul > li > a:hover{
+    background-color:lightblue;
+}
+ .my-nav-bar{
+  background: #fff!important;
+  position: absolute;
+  top:0;
+  box-shadow: 0 -1px 5px #000;
+  z-index: 2;
+  font-size: 17px;
+  width: 100%;
+}
+  
+
+.myclient-button-block{
+    margin-top:24px; 
+}
+
+.mleft10{
+    margin-left: 5px;
+}
+
+.myRow td{
+    padding: 0!important;
+}
+
+
+.numalign
+{
+    text-align: right;
+    border-block-end-width:60px;
+}
+
+.table-row-selected { 
+    cursor: hand;
+}
+
+.headerimage{
+    padding-top: 5px;
+    width: 62px;
+    height: 42px;
+}
+
+.react-bs-table-tool-bar {
+    margin-bottom: 5px;
+    padding-left: 1220px;
+}
+
+.button{
+    margin-top: 23px;
+}
+
+.btstrap{
+    margin-top: 10px;
+}
+
+
+/* The container */
+.radiocontainer {
+    display: block;
+    position: relative;
+    padding-left: 20px;
+    /* margin-bottom: 12px; */
+    margin-bottom: 0px;
+    margin-top: 29px;
+    cursor: pointer;
+    font-size: 12px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.radiocontainer input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+
+}
+
+/* Create a custom radio button */
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    background-color: #eee;
+    border-radius: 50%;
+    border: 1px solid grey;
+    padding-left: 10px;
+}
+
+/* On mouse-over, add a grey background color */
+.radiocontainer:hover input ~ .checkmark {
+    background-color: #ccc;
+    border: 1px solid grey;
+}
+
+/* When the radio button is checked, add a blue background */
+.radiocontainer input:checked ~ .checkmark {
+    background-color:white;
+    border: 2px solid rgb(7, 119, 189);
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+    background-color:white;
+    border: 1px rgb(240, 82, 213);
+}
+
+/* Show the indicator (dot/circle) when checked */
+.radiocontainer input:checked ~ .checkmark:after {
+    display: block;
+    background-color:rgb(240, 82, 213);
+}
+
+/* Style the indicator (dot/circle) */
+.radiocontainer .checkmark:after {
+ 	top: 2px;
+	left: 2px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+    background: white;
+}
+
+.radiolabel{
+    font-size: 14px;
+}
+
+.modal-header {
+    padding: 0px;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.modelClose{
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 0px 0 #fbf8f8;
+    filter: alpha(opacity=20);
+    opacity: .2;
+    border: 0px;
+    padding-top: 6px;
+    padding-bottom: 2px;
+}
+
+.modelBtnClose{
+    margin-right: 4%;
+    width: 27px;
+    background: #fbfbfb;
+    height: 41px;
+}
+
+.modal-title {
+    margin: 7px;
+    line-height: 0.428571;
+    padding-left: 20px;
+    padding-top: 10px;
+}
+
+.JobCompleted{
+    background-color: rgb(219, 250, 211) !important
+}
