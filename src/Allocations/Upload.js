@@ -1,133 +1,138 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import $ from 'jquery';
 import './JobAllocations.css';
-import {MRSUrl} from '../Config';
-import {MyAjaxForAttachments} from '../MyAjax';
+import { MRSUrl } from '../Config';
+import { MyAjaxForAttachments } from '../MyAjax';
 import { toast } from 'react-toastify';
-import { showErrorsForInput} from '../Validation';
+import { showErrorsForInput } from '../Validation';
 
-class Upload extends Component{
-    constructor(props){
-       
+class Upload extends Component {
+    constructor(props) {
+
         super(props);
-        this.state={
-            JobNumber: this.props.JobNumber, ClientId:this.props.ClientId,  IsFolderUpload:false ,IsFileUpload: false,
+        this.state = {
+            JobNumber: this.props.JobNumber, ClientId: this.props.ClientId, IsFolderUpload: false, IsFileUpload: false,
+            JobName: this.props.JobName, Client: this.props.Client
         }
     }
-    render(){
-        return(
-            <div className="container" key={this.props.JobNumber}>
+    render() {
+        return (
+            <div key={this.props.JobNumber}>
 
-            <form onSubmit={this.handleSubmit.bind(this)}>
+                <form onSubmit={this.handleSubmit.bind(this)}>
 
-               <div className="col-xs-12">
-                  <div className="col-xs-3">
-                    <label>Job Number</label>
-                    <input  className="form-control"  ref="jobNUmber"  type="text"  placeholder="Job Number" value={this.props.JobNumber} />
-                  </div>
-                  
-                  <div className="col-xs-4">
-                    <label>File</label>
-                     <div className="form-group" >
-                        <div className="input-group">
-                              <input type="file" className="form-control" name="fileupload" ref="fileupload" />
+                    <div className="col-xs-12">
+                        <table className="table table-bordered">
+                            <tbody>
+                                <tr>
+                                    <td><b>Job Name</b></td><td>{this.props.JobName}</td>
+                                </tr>
+                                <tr>
+                                    <td><b>Client</b></td><td>{this.props.Client}</td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                        <div className="col-xs-12">
+                            <div className="form-group" >
+                                <div className="input-group col-xs-12">
+                                    <input type="file" className="form-control" name="fileupload" ref="fileupload" />
+                                </div>
+                            </div>
                         </div>
-                      </div>
                     </div>
-                </div>
-             
-                <div className="col-xs-12" style={{marginTop:'2%'}}>
-                    <div className="col-sm-3">
-                      <div className="loader loaderActivity docSubmit"  style={{ marginLeft: '180%' }}></div>
-                       <button type="submit" name="submit" className="btn btn-success" style={{ marginLeft: '180%' }} > Submit </button>
-                    </div>
-                </div>
 
-               </form>
+                    <div className="col-xs-12">
+                        <div className="col-sm-3">
+                            <div className="loader loaderActivity docSubmit" style={{ marginLeft: '180%' }}></div>
+                            <button type="submit" name="submit" className="btn btn-success" style={{ marginLeft: '180%' }} > Submit </button>
+                        </div>
+                    </div>
+
+                </form>
             </div>
         )
     }
 
-    FileUploadClick(){
-        this.setState({IsFileUpload: true,IsFolderUpload: false})
+    FileUploadClick() {
+        this.setState({ IsFileUpload: true, IsFolderUpload: false })
     }
-    FolderUploadClick(){
-        this.setState({IsFolderUpload: true, IsFileUpload: false})
+    FolderUploadClick() {
+        this.setState({ IsFolderUpload: true, IsFileUpload: false })
     }
 
-    handleSubmit(e){
-      e.preventDefault();
+    handleSubmit(e) {
+        e.preventDefault();
 
-      $(".loader").show();
-      $("button[name='submit']").hide();
+        $(".loader").show();
+        $("button[name='submit']").hide();
 
-     var data= new FormData();
-     var files= this.refs.fileupload.files;
+        var data = new FormData();
+        var files = this.refs.fileupload.files;
 
-     if(files.length!=0)
-     {
-        if($.inArray(files[0].name.split('.').pop().toLowerCase(),["pdf","doc","docx", "xlsx","csv","txt","jpg", "jpeg", "png"])==-1){
-            showErrorsForInput(this.refs.fileupload, ["Supported formats : pdf|doc|docx|xlsx|txt|jpg | jpeg | png"]);
+        if (files.length != 0) {
+            if ($.inArray(files[0].name.split('.').pop().toLowerCase(), ["pdf", "doc", "docx", "xlsx", "csv", "txt", "jpg", "jpeg", "png"]) == -1) {
+                showErrorsForInput(this.refs.fileupload, ["Supported formats : pdf|doc|docx|xlsx|txt|jpg | jpeg | png"]);
+                $(".loader").hide();
+                $("button[name='submit']").show();
+                return;
+            }
+            // if(files[0].name.split('.').pop() !== this.props.JobNumber)
+            // {
+            //     showErrorsForInput(this.refs.fileupload,["File name should match job number"]);
+            //     $(".loader").hide();
+            //     $("button[name='submit']").show();
+            //     return;
+            // }
+        }
+        else {
+            showErrorsForInput(this.refs.fileupload, ["Please select a file for upload"]);
             $(".loader").hide();
             $("button[name='submit']").show();
             return;
         }
-        // if(files[0].name.split('.').pop() !== this.props.JobNumber)
-        // {
-        //     showErrorsForInput(this.refs.fileupload,["File name should match job number"]);
-        //     $(".loader").hide();
-        //     $("button[name='submit']").show();
-        //     return;
-        // }
-     }
-     else{
-         showErrorsForInput(this.refs.fileupload, ["Please select a file for upload"]);
-         $(".loader").hide();
-         $("button[name='submit']").show();
-         return;
-     }
 
-     data.append("clientId", this.props.ClientId);
-     data.append("file", this.refs.fileupload.files[0]);
+        data.append("clientId", this.props.ClientId);
+        data.append("file", this.refs.fileupload.files[0]);
 
-      let url= MRSUrl+ "/api/Jobs/UpdateJob?jobNumber="+ this.props.JobNumber
- 
-      try{
-          MyAjaxForAttachments(url,
-            (data)=>{
-                 toast("File Uploaded Successfully",{
-                     type:toast.TYPE.SUCCESS
-                 });
-                //  $(".loader").hide();
-                //  $("button[name='submit']").show();
-                this.props.closeUploadModal();
-            },
-            (error)=>{
-                toast("An error occoured, please try again!", {
-                    type: toast.TYPE.ERROR,
-                    autoClose: false
-                });
-                $(".loader").hide();
-                $("button[name='submit']").show();
-            },
-            "POST",
-            data
+        let url = MRSUrl + "/api/Jobs/UpdateJob?jobNumber=" + this.props.JobNumber
+
+        try {
+            MyAjaxForAttachments(url,
+                (data) => {
+                    toast("File Uploaded Successfully", {
+                        type: toast.TYPE.SUCCESS
+                    });
+                    //  $(".loader").hide();
+                    //  $("button[name='submit']").show();
+                    this.props.closeUploadModal();
+                },
+                (error) => {
+                    toast("An error occoured, please try again!", {
+                        type: toast.TYPE.ERROR,
+                        autoClose: false
+                    });
+                    $(".loader").hide();
+                    $("button[name='submit']").show();
+                },
+                "POST",
+                data
             );
-      }
-      catch (e) {
-        toast("An error occoured, please try again!", {
-            type: toast.TYPE.ERROR
-        });
-        $(".loader").hide();
-        $("button[name='submit']").show();
-        return false;
-    }
+        }
+        catch (e) {
+            toast("An error occoured, please try again!", {
+                type: toast.TYPE.ERROR
+            });
+            $(".loader").hide();
+            $("button[name='submit']").show();
+            return false;
+        }
     }
 }
 
 export default Upload;
 
-  {/*<div className="col-xs-8">
+{/*<div className="col-xs-8">
                         <div className="col-md-4 form-group" >
                             <label className="radiocontainer" >
                                 <label className="radiolabel"> File Upload</label>
@@ -144,7 +149,7 @@ export default Upload;
                          </div>
                   </div>*/}
 
-  {/* <div className="col-xs-12" key={this.state.IsFileUpload}>
+{/* <div className="col-xs-12" key={this.state.IsFileUpload}>
                 {
                     this.state.IsFileUpload ?
                     <div className="col-xs-4">

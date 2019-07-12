@@ -238,11 +238,15 @@
 
 .modal-title {
     margin: 7px;
-    line-height: 0.428571;
+    /* line-height: 0.428571;
     padding-left: 20px;
-    padding-top: 10px;
+    padding-top: 10px; */
 }
 
 .JobCompleted{
     background-color: rgb(219, 250, 211) !important
+}
+
+.JobPending{
+    background-color: rgb(252, 232, 197) !important
 }
