@@ -7,7 +7,7 @@
     "bootstrap-fileinput": "^4.4.7",
     "bootstrap-show-password": "^1.0.3",
     "easy-pdf-merge": "^0.2.0",
-    "jquery": "^3.3.1",
+    "jquery": "^3.5.0",
     "moment": "^2.20.1",
     "pdf-merge": "^1.1.0",
     "react": "^16.2.0",
